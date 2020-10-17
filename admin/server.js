@@ -36,6 +36,7 @@ const users = [
   { id: 9999999,
     name: "Admin",
     email: "admin@coffeeshop.com",
+    // password
     password: "$2a$10$I523Fla7Iz.z5KLQqSqdie6Zf/E/wQTMHAGQTHnij5XZ56haTGO.S"
   }
 ]

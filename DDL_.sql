@@ -44,7 +44,8 @@ CREATE TABLE Item_order(
     REFERENCES Orders(orderID),
     itemID int(11),
     CONSTRAINT FK_Item FOREIGN KEY (itemID)
-    REFERENCES  Items(itemID)
+    REFERENCES  Items(itemID),
+    itemQuanity int(11) NOT NULL
 );
 
 

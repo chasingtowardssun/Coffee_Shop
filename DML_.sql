@@ -1,5 +1,5 @@
 --
--- 2. Sample Data
+-- Sample Data
 --
 -- Change it to the DB's name
 use coffee_local;
@@ -20,3 +20,9 @@ INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES 
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (2, 2, '2020-10-16 22:40:56', 'ready for pick up', 1.2);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (3, 4, '2020-10-16 21:31:20', 'processing', 2.7);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (4, 3, '2020-10-16 21:41:42', 'placed', 3);
+
+INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (1, 1, 2, 1);
+INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (2, 2, 1, 1);
+INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (3, 3, 1, 1);
+INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (4, 3, 2, 1);
+INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (5, 4, 2, 2);
