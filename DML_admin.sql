@@ -9,11 +9,8 @@
 -- 3. show all the orders
 
 
--- 0.1 Show all the items
+-- 0. Show all the items
 SELECT * FROM Items;
-
--- 0.1 Show all the Orders --->>  ????
-SELECT * FROM Orders;
 
 -- 1.0 modify an order
 --      change order status (placed / processed / ready to pick up / completed)
