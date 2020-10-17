@@ -1,5 +1,5 @@
 --
--- Test DataBase
+-- Test DataBase for admin page
 --
 -- admin person should be able to perform the following query
 -- 0. Show all the items
