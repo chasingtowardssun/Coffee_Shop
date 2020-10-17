@@ -15,6 +15,14 @@ CREATE TABLE Users(
     phoneNumber varchar(255)
 );
 
+-- Table structure for table `Orders`
+CREATE TABLE Orders(
+    orderID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    orderTime time NOT NULL,
+    orderStatus bool NOT NULL,
+    totalPrice float(8) NOT NULL
+);
+
 
 
 
@@ -22,7 +30,7 @@ CREATE TABLE Users(
 -- 2. Sample Data
 --
 
-LOCK TABLES `User` WRITE;
+LOCK TABLES `Users` WRITE;
 INSERT INTO Users (name, email, password, phoneNumber)
     VALUES
         ("customer1", "customer1@gmail.com", "$2a$10$I523Fla7Iz.z5KLQqSqdie6Zf/E/wQTMHAGQTHnij5XZ56haTGO.S", "0123456789"),
