@@ -3,6 +3,7 @@ module.exports = function(passport){
     var router = express.Router();
     const bcrypt = require('bcrypt')
 
+    router.get('/')
     router.get('/login', checkNotAuthenticated, (req, res) => {
       var context = {};
       context.loggedin = false;
