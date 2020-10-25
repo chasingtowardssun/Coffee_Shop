@@ -1,0 +1,27 @@
+<h1>Hi {{name}}, Here's all the orders! </h1>
+<br>
+<br>
+
+
+<table>
+    <thead>
+    <th>Order ID</th>
+    <th>Order Time</th>
+    <th>Customer Name</th>
+    <th>Total Price</th>
+    <th>Order Status</th>
+    </thead>
+    <tbody>
+    {{#each order}}
+        <tr>
+            <td>{{orderID}}</td>
+            <td>{{orderTime}}</td>
+            <td>{{orderName}}</td>
+            <td>{{totalPrice}}</td>
+            <td>{{orderStatus}}</td>
+            <td><a href="/orders/{{id}}">Update Order Status</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+

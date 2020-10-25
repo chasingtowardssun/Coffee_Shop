@@ -1,0 +1,32 @@
+<h1>Hi {{name}}, Here's the menu! </h1>
+<br>
+<br>
+
+<h3>Add new Item:</h3>
+<form id="additem" action="/menu" method="post">
+    Item name: <input type="text" name="name"><br>
+    Item Unit Price: <input type="text" name="unitPrice"><br>
+    <input type="submit" value="Submit">
+</form>
+<br/>
+
+
+<h3>Current items:</h3>
+<table>
+    <thead>
+    <th>Item ID</th>
+    <th>Name</th>
+    <th>Unit Price</th>
+    </thead>
+    <tbody>
+    {{#each item}}
+        <tr>
+            <td>{{itemID}}</td>
+            <td>{{itemName}}</td>
+            <td>{{unitPrice}}</td>
+            <td><button onclick="deleteItem({{id}})">Delete</button></td>
+            <td><a href="/menu/{{id}}">Update</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

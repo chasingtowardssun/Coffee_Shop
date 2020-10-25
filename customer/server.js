@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
-const app = express()
+const app = express();
 
 const mysql = require('./dbcon.js');
 const bodyParser = require('body-parser');
@@ -16,25 +16,25 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('mysql', mysql);
 app.use(express.urlencoded({ extended: false }))
-app.use(flash())
+app.use(flash());
 app.use(session({
   secret: "supersecret",
   resave: false,
   saveUninitialized: false,
-}))
-app.use(passport.initialize())
-app.use(passport.session())
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 const initializePassport = require('./authentication/passport-config-customer')
 initializePassport(
   passport
-)
+);
 
 app.post('/account/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/account/login',
   failureFlash: true,
-}))
+}));
 
 app.use('/account', require('./authentication/account.js'));
 
@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
   context.name = req.isAuthenticated() ? req.user.name : ""
   context.message = "main page"
   res.render('index', context)
-})
+});
 
 // 3. if the page need authentication, add checkAuthenticated into your http call function param
 app.get('/placeOrder', checkAuthenticated, (req, res) => {
@@ -70,7 +70,7 @@ app.get('/placeOrder', checkAuthenticated, (req, res) => {
   context.message = "order page"
   context.name = req.user.name + " your id: " + req.user.userID;
   res.render('index', context)
-})
+});
 
 /*--------------------------------------------------------------
 ----------------------------------------------------------------*/
