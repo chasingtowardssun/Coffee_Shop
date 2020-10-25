@@ -66,6 +66,9 @@ UNLOCK TABLES;
 
 INSERT INTO Items (itemID, name, unitPrice) VALUES (1, 'apple', 1.2);
 INSERT INTO Items (itemID, name, unitPrice) VALUES (2, 'banana', 1.5);
+INSERT INTO Items (itemID, name, unitPrice) VALUES (3, 'Pumpkin Spice Crème', 4.0);
+INSERT INTO Items (itemID, name, unitPrice) VALUES (4, 'Caffe Latte', 2.95);
+INSERT INTO Items (itemID, name, unitPrice) VALUES (5, 'Flat White', 3.75);
 
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (1, 1, '2020-10-16 23:40:22', 'completed', 1.5);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (2, 2, '2020-10-16 22:40:56', 'ready for pick up', 1.2);
