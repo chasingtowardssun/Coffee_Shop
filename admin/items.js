@@ -15,9 +15,7 @@ module.exports = function(){
     }
 
 
-
-    /*Display all items. Requires web based javascript to delete items with AJAX*/
-
+    // Display all items.
     router.get('/', function(req, res){
         let callbackCount = 0;
         let context = {};
@@ -30,6 +28,22 @@ module.exports = function(){
                 res.render('menu', context);
             }
         }
+    });
+
+
+    router.post('/', function(req, res){
+        let mysql = req.app.get('mysql');
+        let sql = "INSERT INTO Items (name, unitPrice) VALUES (?,?)";
+        let inserts = [req.body.name, req.body.unitPrice];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                console.log(JSON.stringify(error))
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/menu');
+            }
+        });
     });
 
     return router;
