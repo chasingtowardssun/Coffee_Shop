@@ -12,7 +12,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 
 const menuRouter = require('./items.js');
-const ordersRouter = require('./orders/orders.js');
+const ordersRouter = require('./orders.js');
 // const path = require('path');
 
 let handlebars = require('express-handlebars').create({defaultLayout:'main'});
@@ -57,7 +57,7 @@ app.post('/account/login', checkNotAuthenticated, passport.authenticate('local',
 }));
 
 app.use('/account', require('./authentication/account.js'));
-app.use('/menu', checkAuthenticated, menuRouter);
+app.use('/items', checkAuthenticated, menuRouter);
 app.use('/orders', checkAuthenticated, ordersRouter);
 
 function checkAuthenticated(req, res, next) {

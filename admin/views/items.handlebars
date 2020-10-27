@@ -3,7 +3,7 @@
 <br>
 
 <h3>Add new Item:</h3>
-<form id="additem" action="/menu" method="post">
+<form id="additem" action="/items" method="post">
     Item name: <input type="text" name="name"><br>
     Item Unit Price: <input type="text" name="unitPrice"><br>
     <input type="submit" value="Submit">
@@ -24,8 +24,8 @@
             <td>{{itemID}}</td>
             <td>{{itemName}}</td>
             <td>{{unitPrice}}</td>
-            <td><button onclick="deleteItem({{id}})">Delete</button></td>
-            <td><a href="/menu/{{id}}">Update</a></td>
+            <td><button onclick="deleteItem({{itemID}})">Delete</button></td>
+            <td><a href="/items/{{itemID}}">Update</a></td>
         </tr>
     {{/each}}
     </tbody>

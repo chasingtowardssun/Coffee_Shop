@@ -1,0 +1,11 @@
+<h1>Hi {{name}}, Update the selected item from Menu here! </h1>
+<br>
+<br>
+
+<form id="update-item" action="/items" method="post">
+    Item name: <input type="text" name="itemName" value="{{item.itemName}}"><br>
+    Unit Price: <input type="text" name="unitPrice" value="{{item.unitPrice}}"><br>
+</form>
+<button onclick="updateItem({{item.id}})">Update</button>
+
+
