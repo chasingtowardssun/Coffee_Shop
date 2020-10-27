@@ -81,7 +81,7 @@ module.exports = function(){
         let mysql = req.app.get('mysql');
         console.log(req.body);
         console.log(req.params.id);
-        let sql = "UPDATE items SET name=?, unitPrice=? WHERE itemID=?";
+        let sql = "UPDATE Items SET name=?, unitPrice=? WHERE itemID=?";
         let inserts = [req.body.itemName, req.body.unitPrice, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){

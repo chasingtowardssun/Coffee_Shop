@@ -16,6 +16,19 @@ module.exports = function(){
         });
     }
 
+    function getOrder(res, mysql, context, id, complete){
+        let sql = "SELECT orderID, orderTime, name AS customerName, totalPrice, orderStatus FROM Orders, Users WHERE Orders.userID = Users.userID AND orderID = ?";
+        let inserts = [id];
+        mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.order = results[0];
+            complete();
+        });
+    }
+
 
     // Display all items
     router.get('/', function(req, res){
@@ -30,6 +43,43 @@ module.exports = function(){
             }
         }
     });
+
+
+    // Display one order
+    router.get('/:id', function(req, res){
+        let callbackCount = 0;
+        let context = {};
+        context.jsscripts = ["updateorder.js"];
+        let mysql = req.app.get('mysql');
+        getOrder(res, mysql, context, req.params.id, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.render('update-order', context);
+            }
+
+        }
+    });
+
+
+    router.put('/:id', function(req, res){
+        let mysql = req.app.get('mysql');
+        console.log(req.body);
+        console.log(req.params.id);
+        let sql = "UPDATE Orders SET totalPrice=?, orderStatus=? WHERE orderID=?";
+        let inserts = [req.body.totalPrice, req.body.orderStatus, req.params.id];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                console.log(error);
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.status(200);
+                res.end();
+            }
+        });
+    });
+
 
     return router;
 }();
