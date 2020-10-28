@@ -3,7 +3,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
-const app = express();
+const app = express()
+const path = require('path')
 
 const mysql = require('./dbcon.js');
 const bodyParser = require('body-parser');
@@ -15,6 +16,7 @@ var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('mysql', mysql);
+app.use(express.static('pubilc'));
 app.use(express.urlencoded({ extended: false }))
 app.use(flash());
 app.use(session({
@@ -41,6 +43,18 @@ app.use('/account', require('./authentication/account.js'));
 /*
 -------- put your code here--------------------------------------
 ------------------------------------------------------------------
+*/
+app.get('/menu/Menu', (req, res) => {
+  var context = {};
+  context.name = "Cappuccino"
+  context.price = "$2.99"
+  context.calorie = "200 Cal per serving"
+  context.photo = "https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242"
+  res.render('menu/Menu', context)
+})
+
+/*
+end 
 */
 
 // 1. add this checkAuthenticated function in your js file
