@@ -77,12 +77,16 @@ app.get('/', checkAuthenticated, (req, res) => {
 
 app.use(function(req,res){
     res.status(404);
-    res.render('404');
+    var context = {};
+    context.loggedin = req.isAuthenticated() ? true : false;
+    res.render('404', context);
 });
 
 app.use(function(err, req, res, next){
     console.error(err.stack);
     res.status(500);
+    var context = {};
+    context.loggedin = req.isAuthenticated() ? true : false;
     res.render('500');
 });
 
