@@ -18,10 +18,10 @@ INSERT INTO Users (name, email, password)
   VALUES ("customer1 Smith", "customer1@gmail.com",
     "$2a$10$I523Fla7Iz.z5KLQqSqdie6Zf/E/wQTMHAGQTHnij5XZ56haTGO.S");
 
---2.0 Update user name phoneNumber from Users
+-- 2.0 Update user name phoneNumber from Users
 UPDATE Users SET name="customer1 Eric", phoneNumber="1234567890" WHERE userID= 1;
 
---2.1 Update user password from Users
+-- 2.1 Update user password from Users
 UPDATE Users
   SET password = "$2a$10$I523Fla7Iz.z5KLQqSqdie6Zf/E/wQTMHAGQTHnij5XZ56haTGO.S"
   WHERE userID=1;

@@ -17,6 +17,7 @@ const ordersRouter = require('./orders.js');
 
 let handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
+app.enable('trust proxy');
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('mysql', mysql);
@@ -97,7 +98,9 @@ function checkNotAuthenticated(req, res, next) {
   next()
 }
 
-app.listen(4000);
+const port = process.env.PORT | 8080;
+console.log(`Listening to port ${port}`)
+app.listen(port);
 
 // npm install
 // npm start
