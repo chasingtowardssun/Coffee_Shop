@@ -13,7 +13,7 @@ let mysql = require('mysql');
 //   connectionLimit : 10,
 //   host            : 'localhost',
 //   user            : 'weilianshan',
-//   password        : 'jiayou2014',
+//   password        : 'password',
 //   database        : 'coffee_local'
 // });
 
