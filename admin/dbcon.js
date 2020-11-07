@@ -4,7 +4,7 @@ let mysql = require('mysql');
    connectionLimit : 10,
    host            : 'localhost',
    user            : 'root',
-   password        : 'passwo',
+   password        : 'password',
    database        : 'coffee_shop'
  });
 
