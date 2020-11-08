@@ -33,6 +33,8 @@ CREATE TABLE Orders(
 CREATE TABLE Items(
     itemID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name varchar(255) NOT NULL,
+    description varchar(255) NOT NULL,
+    picURL varchar(255) NOT NULL,
     unitPrice float(8) NOT NULL
 );
 
@@ -64,11 +66,11 @@ INSERT INTO Users (name, email, password, phoneNumber)
         ("customer4 John", "customer4@gmail.com", "$2a$10$I523Fla7Iz.z5KLQqSqdie6Zf/E/wQTMHAGQTHnij5XZ56haTGO.S", "1234567890");
 UNLOCK TABLES;
 
-INSERT INTO Items (itemID, name, unitPrice) VALUES (1, 'apple', 1.2);
-INSERT INTO Items (itemID, name, unitPrice) VALUES (2, 'banana', 1.5);
-INSERT INTO Items (itemID, name, unitPrice) VALUES (3, 'Pumpkin Spice Crème', 4.0);
-INSERT INTO Items (itemID, name, unitPrice) VALUES (4, 'Caffe Latte', 2.95);
-INSERT INTO Items (itemID, name, unitPrice) VALUES (5, 'Flat White', 3.75);
+INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (1, 'apple', 'fresh apple', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242',1.2);
+INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (2, 'banana', 'fresh banana', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242',1.5);
+INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (3, 'Pumpkin Spice Crème', 'description', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242', 4.0);
+INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (4, 'Caffe Latte', 'description', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242', 2.95);
+INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (5, 'Flat White', 'description', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242', 3.75);
 
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (1, 1, '2020-10-16 23:40:22', 'completed', 1.5);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (2, 2, '2020-10-16 22:40:56', 'ready for pick up', 1.2);

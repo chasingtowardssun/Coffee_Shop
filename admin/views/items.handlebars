@@ -5,6 +5,8 @@
 <h3>Add new Item:</h3>
 <form id="additem" action="/items" method="post">
     Item name: <input type="text" name="name"><br>
+    Item Description: <input type="text" name="description"><br>
+    Picture URL: <input type="text" name="picURL"><br>
     Item Unit Price: <input type="text" name="unitPrice"><br>
     <input type="submit" value="Submit">
 </form>
@@ -16,6 +18,8 @@
     <thead>
     <th>Item ID</th>
     <th>Name</th>
+    <th>Description</th>
+    <th>Picture URL</th>
     <th>Unit Price</th>
     </thead>
     <tbody>
@@ -23,6 +27,8 @@
         <tr>
             <td>{{itemID}}</td>
             <td>{{itemName}}</td>
+            <td>{{description}}</td>
+            <td>{{picURL}}</td>
             <td>{{unitPrice}}</td>
             <td><button onclick="deleteItem({{itemID}})">Delete</button></td>
             <td><a href="/items/{{itemID}}">Update</a></td>
