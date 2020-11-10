@@ -1,12 +1,12 @@
 let mysql = require('mysql');
- // Lijie
- var pool = mysql.createPool({
-   connectionLimit : 10,
-   host            : 'localhost',
-   user            : 'root',
-   password        : 'password',
-   database        : 'coffee_shop'
- });
+ // // Lijie
+ // var pool = mysql.createPool({
+ //   connectionLimit : 10,
+ //   host            : 'localhost',
+ //   user            : 'root',
+ //   password        : 'password',
+ //   database        : 'coffee_shop'
+ // });
 
 //// Yucen
 //let pool = mysql.createPool({
@@ -16,6 +16,16 @@ let mysql = require('mysql');
 //  password        : 'password',
 //  database        : 'coffee_shop'
 //});
+
+
+// Gabby
+let pool = mysql.createPool({
+ connectionLimit : 10,
+ host            : 'localhost',
+ user            : 'weilianshan',
+ password        : 'password',
+ database        : 'coffee_local'
+});
 
 
 // // GCP

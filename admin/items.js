@@ -3,7 +3,7 @@ module.exports = function(){
     let router = express.Router();
 
     function getItems(res, mysql, context, complete){
-        mysql.pool.query("SELECT itemID, name AS itemName, description, picURL, unitPrice FROM Items", function(error, results, fields){
+        mysql.pool.query("SELECT itemID, name AS itemName, calorie, description, picURL, unitPrice FROM Items", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
@@ -16,7 +16,7 @@ module.exports = function(){
 
 
     function getItem(res, mysql, context, id, complete){
-        let sql = "SELECT itemID as id, name AS itemName, description, picURL, unitPrice FROM Items WHERE itemID = ?";
+        let sql = "SELECT itemID as id, name AS itemName, calorie, description, picURL, unitPrice FROM Items WHERE itemID = ?";
         let inserts = [id];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
@@ -48,8 +48,8 @@ module.exports = function(){
     router.post('/', function(req, res){
         console.log('POST');
         let mysql = req.app.get('mysql');
-        let sql = "INSERT INTO Items (name, description, picURL, unitPrice) VALUES (?, ?, ?,?)";
-        let inserts = [req.body.name, req.body.description, req.body.picURL, req.body.unitPrice];
+        let sql = "INSERT INTO Items (name, calorie, description, picURL, unitPrice) VALUES (?, ?, ?, ?,?)";
+        let inserts = [req.body.name, req.body.calorie, req.body.description, req.body.picURL, req.body.unitPrice];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(JSON.stringify(error));
@@ -81,8 +81,8 @@ module.exports = function(){
         let mysql = req.app.get('mysql');
         console.log(req.body);
         console.log(req.params.id);
-        let sql = "UPDATE Items SET name=?, description=?, picURL=?, unitPrice=? WHERE itemID=?";
-        let inserts = [req.body.itemName, req.body.description, req.body.picURL, req.body.unitPrice, req.params.id];
+        let sql = "UPDATE Items SET name=?, calorie=?, description=?, picURL=?, unitPrice=? WHERE itemID=?";
+        let inserts = [req.body.itemName, req.body.calorie, req.body.description, req.body.picURL, req.body.unitPrice, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error);

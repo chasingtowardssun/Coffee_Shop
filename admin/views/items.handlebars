@@ -5,6 +5,7 @@
 <h3>Add new Item:</h3>
 <form id="additem" action="/items" method="post">
     Item name: <input type="text" name="name"><br>
+    Calories: <input type="text" name="calorie"><br>
     Item Description: <input type="text" name="description"><br>
     Picture URL: <input type="text" name="picURL"><br>
     Item Unit Price: <input type="text" placeholder="must enter a number" name="unitPrice"><br>
@@ -18,6 +19,7 @@
     <thead>
     <th>Item ID</th>
     <th>Name</th>
+    <th>Calories</th>
     <th>Description</th>
     <th>Picture URL</th>
     <th>Unit Price</th>
@@ -27,6 +29,7 @@
         <tr>
             <td>{{itemID}}</td>
             <td>{{itemName}}</td>
+            <td>{{calorie}}</td>
             <td>{{description}}</td>
             <td>{{picURL}}</td>
             <td>{{unitPrice}}</td>
