@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const menuRouter = require('./menu.js');
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -44,14 +45,16 @@ app.use('/account', require('./authentication/account.js'));
 -------- put your code here--------------------------------------
 ------------------------------------------------------------------
 */
-app.get('/menu/Menu', (req, res) => {
-    var context = {};
-    context.name = "Cappuccino";
-    context.price = "$2.99";
-    context.calorie = "200 Cal per serving";
-    context.photo = "https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242";
-    res.render('menu/Menu', context)
-});
+// app.get('/menu/Menu', (req, res) => {
+//     var context = {};
+//     context.name = "Cappuccino";
+//     context.price = "$2.99";
+//     context.calorie = "200 Cal per serving";
+//     context.photo = "https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242";
+//     res.render('menu/Menu', context)
+// });
+
+app.use('/menu/Menu', menuRouter);
 
 /*
 end

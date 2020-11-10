@@ -1,4 +1,4 @@
-<section id = "coffeeMenu">
+{{!-- <-- <section id = "coffeeMenu">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -146,107 +146,35 @@
       </div>
     </div>
   </div>
+</section> --}}
+
+
+
+
+<section id="coffeeMenu">
+  {{#each item}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="upper">
+          <img src = {{imgSrc}}>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="coffeeInfo">
+          <h3> {{name}} </h3>
+          <h3> Calorie: {{calorie}} </h3>
+          <h5> {{coffeeInfo}} </h5>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="lower">
+          <h4> Price: ${{unitPrice}} </h4>
+          <h4> Order number: 0 </h4>
+          <center><a class='btn' href='#'>Order</a></center>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </section>
-
-
-
-
-
-
-
-<!-- <div class="page-wrap" style="width:80%; margin: auto; ">
-  <h1>Coffee Menu</h1>
-  <div id="Menu"></div>
-</div>
-
-
-<section id = "coffee_menu">
-  <div class="container" style="width:80%; margin: auto; position: relative; border: 2px; ">
-    <div class='col-md-12'>
-
-    <div class="coffee_box" >
-      <div class="photo-column" style="float:left; width:50%">
-        <a href = menu_items/Cappuccino>
-          <img src="{{photo}}" style="width:200px;height:200px;object-fit:cover" alt="Cappuccino">
-        </a>
-      </div>
-
-      <div class="info-column" style="float:right; width:50%;">
-        <h3>{{name}} </h3>
-        <h3>{{price}} </h3>
-        <h4>{{calorie}} </h4>
-        <button> Order </button>
-      </div>
-    </div>
-  </div>
-  </div>
-</section> -->
-
-
-
-
-
-
-
-<!-- <script id="coffeeTemplate" type="text/x-handlebars-template">
-{{#each coffee}}
-  <div class="coffee">
-    <div class="photo-column">
-      <img src="{{photo}}">
-    </div>
-
-    <div class="info-column">
-      <h2>{{name}} </h2>
-      <h2>{{calorie}} </h2>
-    </div>
-  </div>
-{{/each}}
-</script> -->
-
-
-
-
-
-
-
-
-<!-- <div class="menu" style="margin-top: 0px">
-  <div class="menu-items">
-            <div class="flex">
-                    <div class="item">
-                        <a href="/menu-items/Cappuccino">
-
-                            <img src="https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242" style="width:50px;height:100px;object-fit:cover" alt="Cappuccino">
-
-
-                            <span aria-hidden="true">Java coffee<sup>®</sup>Cappuccino</span>
-
-                            <p>
-                                <span>$4.39</span>
-                                    <span class="divider"></span>
-                                <span>
-                                    120 Cal per serving
-                                </span>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="/menu-items/Cappuccino">
-
-                            <img src="https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242" style="width:50px;height:100px;object-fit:cover" alt="Cappuccino">
-
-
-                            <span aria-hidden="true">Java coffee<sup>®</sup>Cappuccino</span>
-
-                            <p>
-                                <span>$4.39</span>
-                                    <span class="divider"></span>
-                                <span>
-                                    120 Cal per serving
-                                </span>
-                            </p>
-                        </a>
-                    </div>
-            </div>
-    </div>
-</div> -->
