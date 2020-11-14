@@ -18,7 +18,17 @@
             <td>{{orderTime}}</td>
             <td>{{orderName}}</td>
             <td>{{totalPrice}}</td>
-            <td>{{orderStatus}}</td>
+            <td>
+                <select name="order_status" id="order_status">
+                    {{#select orderStatus}}
+                    <option value="placed">placed</option>
+                    <option value="processing">processing</option>
+                    <option value="ready for pick up">ready for pick up</option>
+                    <option value="completed">completed</option>
+                    {{/select}}
+                </select>
+
+            </td>
             <td><a href="/orders/{{orderID}}">Update Order Status</a></td>
         </tr>
     {{/each}}

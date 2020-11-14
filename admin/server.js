@@ -17,6 +17,12 @@ const ordersRouter = require('./orders.js');
 
 let handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
+handlebars.handlebars.registerHelper('select', function(selected, options) {
+    return options.fn(this).replace(
+        new RegExp(' value=\"' + selected + '\"'),
+        '$& selected="selected"');
+});
+
 app.enable('trust proxy');
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');

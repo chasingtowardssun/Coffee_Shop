@@ -10,8 +10,21 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            console.log(results);
-            context.order = results;
+            // console.log(results);
+
+            context.order = results.map(order => {
+                console.log(`Order ==> ${order.orderTime}`);
+                let options = {
+                    year: 'numeric', month: 'numeric', day: 'numeric',
+                    hour: 'numeric', minute: 'numeric', second: 'numeric',
+                    hour12: false,
+                    timeZone: 'America/Los_Angeles'
+                };
+
+                let d = order.orderTime;
+                order.orderTime = new Intl.DateTimeFormat('default', options).format(d);
+                return order;
+            });
             complete();
         });
     }
