@@ -1,2 +1,4 @@
 admin/node_modules
 customer/node_modules
+admin/dbcon.js
+customer/dbcon.js
