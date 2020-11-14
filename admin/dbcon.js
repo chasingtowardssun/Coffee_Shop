@@ -1,22 +1,22 @@
 let mysql = require('mysql');
 
- // // Lijie
- // let pool = mysql.createPool({
- //   connectionLimit : 10,
- //   host            : 'localhost',
- //   user            : 'root',
- //   password        : 'password',
- //   database        : 'coffee_shop'
- // });
+ // Lijie
+ let pool = mysql.createPool({
+   connectionLimit : 10,
+   host            : 'localhost',
+   user            : 'root',
+   password        : 'password',
+   database        : 'coffee_shop'
+ });
 
-// Gabby
-let pool = mysql.createPool({
- connectionLimit : 10,
- host            : 'localhost',
- user            : 'weilianshan',
- password        : 'password',
- database        : 'coffee_local'
-});
+//// Gabby
+//let pool = mysql.createPool({
+// connectionLimit : 10,
+// host            : 'localhost',
+// user            : 'weilianshan',
+// password        : 'password',
+// database        : 'coffee_local'
+//});
 
 // const dbSocketPath = process.env.DB_SOCKET_PATH || "/cloudsql"
 // let pool = mysql.createPool({
