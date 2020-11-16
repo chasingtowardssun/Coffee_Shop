@@ -4,37 +4,52 @@
 
 <h3>Add new Item:</h3>
 <form id="additem" action="/items" method="post">
-    Item name: <input type="text" name="name"><br>
-    Calories: <input type="text" name="calorie"><br>
-    Item Description: <input type="text" name="description"><br>
-    Picture URL: <input type="text" name="picURL"><br>
-    Item Unit Price: <input type="text" placeholder="must enter a number" name="unitPrice"><br>
-    <input type="submit" value="Submit">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            Item name: <input class="form-control" type="text" name="name"><br>
+        </div>
+        <div class="form-group col-md-4">
+            Calories: <input class="form-control" type="text" name="calorie"><br>
+        </div>
+        <div class="form-group col-md-4">
+            Item Unit Price: <input class="form-control" type="text" placeholder="must enter a number"
+                                    name="unitPrice"><br>
+        </div>
+    </div>
+    Item Description: <input class="form-control" type="text" name="description"><br>
+    Picture URL: <input class="form-control" type="text" name="picURL"><br>
+    <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 <br/>
 
 
 <h3>Current items:</h3>
-<table>
+<table class="table">
     <thead>
-    <th>Item ID</th>
-    <th>Name</th>
-    <th>Calories</th>
-    <th>Description</th>
-    <th>Picture URL</th>
-    <th>Unit Price</th>
+    <tr>
+    <th style="width: 5%">ID</th>
+    <th style="width: 10%">Name</th>
+    <th style="width: 10%">Calories</th>
+    <th style="width: 30%">Description</th>
+    <th style="width: 15%">Picture URL</th>
+    <th style="width: 10%">Unit Price</th>
+    <th style="width: 10%"></th>
+    <th style="width: 10%"></th>
+    </tr>
     </thead>
     <tbody>
     {{#each item}}
         <tr>
-            <td>{{itemID}}</td>
-            <td>{{itemName}}</td>
-            <td>{{calorie}}</td>
-            <td>{{description}}</td>
-            <td>{{picURL}}</td>
-            <td>{{unitPrice}}</td>
-            <td><button onclick="deleteItem({{itemID}})">Delete</button></td>
-            <td><a href="/items/{{itemID}}">Update</a></td>
+            <th scope="row" class="align-middle my-auto">{{itemID}}</th>
+            <td class="align-middle my-auto">{{itemName}}</td>
+            <td class="align-middle my-auto">{{calorie}}</td>
+            <td class="align-middle my-auto">{{description}}</td>
+            <td class="align-middle my-auto"><a class="text-wrap" href="{{picURL}}">url</a></td>
+            <td class="align-middle my-auto">{{unitPrice}}</td>
+            <td class="align-middle my-auto">
+                <button class="btn btn-danger" onclick="deleteItem({{itemID}})">Delete</button>
+            </td>
+            <td class="align-middle my-auto"><a class="btn btn-primary" href="/items/{{itemID}}">Update</a></td>
         </tr>
     {{/each}}
     </tbody>

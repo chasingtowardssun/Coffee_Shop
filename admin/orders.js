@@ -13,7 +13,7 @@ module.exports = function(){
             // console.log(results);
 
             context.order = results.map(order => {
-                console.log(`Order ==> ${order.orderTime}`);
+                // console.log(`Order ==> ${order.orderTime}`);
                 let options = {
                     year: 'numeric', month: 'numeric', day: 'numeric',
                     hour: 'numeric', minute: 'numeric', second: 'numeric',
@@ -47,6 +47,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         let callbackCount = 0;
         let context = {};
+        context.jsscripts = ["orders.js"];
         let mysql = req.app.get('mysql');
         getOrders(res, mysql, context, complete);
         function complete(){
