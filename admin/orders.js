@@ -13,7 +13,7 @@ module.exports = function(){
             // console.log(results);
 
             context.order = results.map(order => {
-                // console.log(`Order ==> ${order.orderTime}`);
+                console.log(`Order ==> ${order.orderTime}`);
                 let options = {
                     year: 'numeric', month: 'numeric', day: 'numeric',
                     hour: 'numeric', minute: 'numeric', second: 'numeric',
@@ -59,24 +59,7 @@ module.exports = function(){
     });
 
 
-    // Display one order
-    router.get('/:id', function(req, res){
-        let callbackCount = 0;
-        let context = {};
-        context.jsscripts = ["updateorder.js"];
-        let mysql = req.app.get('mysql');
-        getOrder(res, mysql, context, req.params.id, complete);
-        function complete(){
-            callbackCount++;
-            if(callbackCount >= 1){
-                res.render('update-order', context);
-            }
-
-        }
-    });
-
-
-    router.put('/:id', function(req, res){
+     router.put('/:id', function(req, res){
         let mysql = req.app.get('mysql');
         console.log(req.body);
         console.log(req.params.id);
