@@ -26,8 +26,19 @@ CREATE TABLE Orders(
     REFERENCES Users(userID),
     orderTime datetime NOT NULL,
     orderStatus varchar(255) NOT NULL,
-    totalPrice float(8) NOT NULL
+    totalPrice float(8)
 );
+
+---- Table structure for table `Orders`
+-- CREATE TABLE Orders(
+--    orderID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--    userID int(11),
+--    CONSTRAINT FK_User FOREIGN KEY (userID)
+--    REFERENCES Users(userID),
+--    orderTime datetime NOT NULL,
+--    orderStatus varchar(255) NOT NULL,
+--    totalPrice float(8) NOT NULL
+-- );
 
 -- Table structure for table `Items`
 -- CREATE TABLE Items(
