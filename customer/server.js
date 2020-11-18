@@ -13,6 +13,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const menuRouter = require('./menu.js');
+const ordersRouter = require('./order.js');
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -45,16 +46,10 @@ app.use('/account', require('./authentication/account.js'));
 -------- put your code here--------------------------------------
 ------------------------------------------------------------------
 */
-// app.get('/menu/Menu', (req, res) => {
-//     var context = {};
-//     context.name = "Cappuccino";
-//     context.price = "$2.99";
-//     context.calorie = "200 Cal per serving";
-//     context.photo = "https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242";
-//     res.render('menu/Menu', context)
-// });
 
 app.use('/menu/Menu', menuRouter);
+
+app.use('/order/Order', checkAuthenticated, ordersRouter);
 
 /*
 end
@@ -114,6 +109,6 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-const port = process.env.PORT | 8080;
+const port = process.env.PORT | 8090;
 console.log(`Listening to port ${port}`)
 app.listen(port);

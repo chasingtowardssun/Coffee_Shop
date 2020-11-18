@@ -18,6 +18,7 @@ module.exports = function () {
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
+        context.loggedin = req.isAuthenticated() ? true : false;
         let mysql = req.app.get('mysql');
         getItems(res, mysql, context, complete);
         function complete(){
@@ -27,16 +28,6 @@ module.exports = function () {
             }
         }
     });
-
-    // app.get('/menu/Menu', (req, res) => {
-//   var context = {};
-//   context.name = "Cappuccino"
-//   context.price = "$2.99"
-//   context.calorie = "200 Cal per serving"
-//   context.photo = "https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242"
-//   res.render('menu/Menu', context)
-// })
-
 
     return router;
 }();
