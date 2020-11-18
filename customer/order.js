@@ -78,7 +78,7 @@ module.exports = function () {
                 });
             }
         }
-        res.redirect('/order/Order');
+        res.redirect('/order/Confirmation');
     });
 
 

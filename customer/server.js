@@ -14,6 +14,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const menuRouter = require('./menu.js');
 const ordersRouter = require('./order.js');
+const confirmationRouter = require('./confirmation.js');
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -50,6 +51,8 @@ app.use('/account', require('./authentication/account.js'));
 app.use('/menu/Menu', menuRouter);
 
 app.use('/order/Order', checkAuthenticated, ordersRouter);
+
+app.use('/order/Confirmation', checkAuthenticated, confirmationRouter);
 
 /*
 end
