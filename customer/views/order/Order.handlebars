@@ -7,13 +7,13 @@
 <form id="additem" action="/order/Order" method="post">
     <table>
         <thead>
-            <th>ItemID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Total number</th>
+        <th>ItemID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Total number</th>
         </thead>
         <tbody>
-            {{#each item}}
+        {{#each item}}
             <tr>
                 <td id="itemID">{{itemID}} </td>
                 <td>{{name}}</td>
@@ -24,8 +24,11 @@
                 <td>
                     <input type="hidden" name="itemID" value={{itemID}} />
                 </td>
+                <td>
+                    <input type="hidden" name="unitPrice" value={{unitPrice}} />
+                </td>
             </tr>
-            {{/each}}
+        {{/each}}
         </tbody>
     </table>
     <input type="submit" value="Submit order">

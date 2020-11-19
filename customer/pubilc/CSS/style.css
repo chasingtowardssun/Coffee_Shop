@@ -108,3 +108,16 @@ img{
     margin-bottom: 12px;
 }
 
+
+#additem th {
+  text-align: center;
+}
+
+#confirmationDate th{
+  border: 1px solid black;
+}
+
+#confirmationDate td{
+  border: 1px solid black;
+}
+
