@@ -31,3 +31,7 @@ module.exports = function () {
 
     return router;
 }();
+
+
+//reference:
+//https://www.runoob.com/w3cnote/javascript-search-auto-tip.html
