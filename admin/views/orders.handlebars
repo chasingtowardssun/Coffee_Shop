@@ -9,6 +9,7 @@
     <th scope="col">Customer Name</th>
     <th scope="col">Total Price ($)</th>
     <th scope="col">Order Status</th>
+    <th scope="col"> Order Details</th>
 <!--    <th scope="col"></th>-->
     </thead>
     <tbody>
@@ -17,7 +18,8 @@
             <th scope="row" class="align-middle my-auto">{{orderID}}</th>
             <td class="align-middle my-auto">{{orderTime}}</td>
             <td class="align-middle my-auto">{{orderName}}</td>
-            <td><input class="price_text form-control" id="order_price-{{orderID}}" type="text" value="{{totalPrice}}"/></td>
+            <td class="align-middle my-auto">{{totalPrice}}</td>
+<!--            <td><input class="price_text form-control" id="order_price-{{orderID}}" type="text" value="{{totalPrice}}"/></td>-->
             <td>
                 <select class="form-control" name="order_status" id="order_status-{{orderID}}">
                     {{#select orderStatus}}
@@ -27,7 +29,17 @@
                     <option value="completed">completed</option>
                     {{/select}}
                 </select>
+            </td>
 
+            <td>
+                <button class="btn btn-primary detail_btn" id="detail_btn-{{orderID}}" type="button" data-toggle="collapse" data-target="#order_detail_{{orderID}}" aria-expanded="false" aria-controls="collapseExample">
+                        Order Details
+                </button>
+                <div class="collapse" id="order_detail-{{orderID}}">
+                    <div class="card card-body" id="order_detail_content-{{orderID}}">
+                        Some detail.
+                    </div>
+                </div>
             </td>
 <!--            <td class="align-middle my-auto"><a class="btn btn-primary" href="/orders/{{orderID}}">Update Order Status</a></td>-->
         </tr>

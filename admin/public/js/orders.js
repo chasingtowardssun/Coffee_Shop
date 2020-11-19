@@ -24,6 +24,14 @@ $(document).ready(function(){
 
         updateOrder(order_id, {'orderStatus': order_status, 'totalPrice': order_price});
     });
+
+    $('.detail_btn').click(function(event){
+        let order_object_name = event.target.id;
+        let order_id = order_object_name.split('-')[1];
+        console.log(`Getting details for order ${order_id}`);
+
+        getOrderDetails(order_id);
+    });
 });
 
 
@@ -34,6 +42,22 @@ function updateOrder(id, data) {
         data: data,
         success: function (result) {
             window.location.replace("./orders");
+        }
+    })
+}
+
+
+function getOrderDetails(id) {
+    $.ajax({
+        url: '/orders/' + id,
+        type: 'GET',
+        data: {},
+        success: function (result) {
+            $(`#order_detail_content-${id}`).html(result);
+            if($(`#order_detail-${id}`).is(":visible")) {
+                $(`#order_detail-${id}`).hide();
+            }
+            else {$(`#order_detail-${id}`).show();}
         }
     })
 }
