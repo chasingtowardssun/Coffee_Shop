@@ -111,3 +111,13 @@ INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (3, 3,
 INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (4, 3, 2, 1);
 INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (5, 4, 2, 2);
 INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (6, 5, 1, 1);
+
+# -- query for total price
+# SELECT Item_order.orderID, orderTime, Users.name, SUM(Item_order.itemQuanity * Items.unitPrice)  as orderTotal
+# FROM Item_order INNER JOIN Items on Item_order.itemID = Items.itemID INNER JOIN Orders O on Item_order.orderID = O.orderID INNER JOIN Users on O.userID = Users.userID
+# GROUP BY orderID
+
+-- query for order detail
+SELECT Items.name, Item_order.itemQuanity
+FROM Item_order INNER JOIN Items on Item_order.itemID = Items.itemID INNER JOIN Orders O on Item_order.orderID = O.orderID
+where Item_order.orderID = 8200001
