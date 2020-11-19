@@ -20,7 +20,7 @@ CREATE TABLE Users(
 
 -- Table structure for table `Orders`
 CREATE TABLE Orders(
-    orderID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    orderID bigint(16) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userID int(11),
     CONSTRAINT FK_User FOREIGN KEY (userID)
     REFERENCES Users(userID),
@@ -61,7 +61,7 @@ CREATE TABLE Items(
 -- Table structure for table `Item_order`
 CREATE TABLE Item_order(
     itemOrderID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    orderID int(11),
+    orderID bigint(16),
     CONSTRAINT FK_ItemOrder FOREIGN KEY (orderID)
     REFERENCES Orders(orderID),
     itemID int(11),
