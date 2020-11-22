@@ -62,8 +62,8 @@ module.exports = function () {
             var sql = "INSERT INTO Item_order (orderID, itemID, itemQuanity) VALUES (?, ?,?)";
             var itemID = parseInt(req.body.itemID[i]);
             var number = parseInt(req.body.number[i]);
-            console.log('itemID: ' + itemID);
-            console.log('number: ' + number);
+            //console.log('itemID: ' + itemID);
+            //console.log('number: ' + number);
             if (number > 0) {
                 orderMark = 1;
                 priceToPay = priceToPay + number * parseFloat(req.body.unitPrice[i]);
@@ -96,9 +96,10 @@ module.exports = function () {
                         res.end();
                     } else {
                         console.log('OK');
+                        res.redirect('/order/Confirmation');
                     }
                 });
-                res.redirect('/order/Confirmation');
+
                 }
         //user didn't order, delete the preSet for order
         if(orderMark == 0){
