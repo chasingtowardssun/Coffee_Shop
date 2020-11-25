@@ -22,7 +22,7 @@ module.exports = function () {
     function getPlacedOrders(res, mysql, context, complete){
         var userID = context.userID;
 
-        var sql = "SELECT orderID, orderTime, totalPrice FROM Orders WHERE orderStatus = 'placed' and userID = ? ORDER BY Orders.orderTime DESC";
+        var sql = "SELECT orderID, orderTime, totalPrice, orderStatus FROM Orders WHERE userID = ? ORDER BY Orders.orderTime DESC";
         var inserts = [userID];
         console.log('userID: ' + context.userID);
         mysql.pool.query(sql, inserts, function(error, results, fields){
