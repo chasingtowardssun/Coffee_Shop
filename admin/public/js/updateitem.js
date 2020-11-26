@@ -1,7 +1,7 @@
-$(document).ready(function() {
-   console.log('ready');
+$(document).ready(function () {
+    console.log('ready');
 
-    $("#update-item" ).submit(function( event ) {
+    $("#update-item").submit(function (event) {
         event.preventDefault();
 
         const id = $('#item_id').val();

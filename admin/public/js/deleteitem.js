@@ -1,9 +1,8 @@
-
-function deleteItem(id){
+function deleteItem(id) {
     $.ajax({
         url: '/items/' + id,
         type: 'DELETE',
-        success: function(result){
+        success: function (result) {
             window.location.reload(true);
         }
     })
