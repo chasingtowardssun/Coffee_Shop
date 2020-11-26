@@ -17,3 +17,5 @@ env_variables:
   DB_PASS: coffee
   DB_NAME: coffee_local
   CLOUD_SQL_CONNECTION_NAME: coffee-shop-admin:us-west2:coffee-shop-db
+  IS_GCLOUD: 1
+  PORT: 8080

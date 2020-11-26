@@ -104,7 +104,7 @@ function checkNotAuthenticated(req, res, next) {
   next()
 }
 
-const port = process.env.PORT | 8080;
+const port = process.env.PORT || 8080;
 console.log(`Listening to port ${port}`)
 app.listen(port);
 
