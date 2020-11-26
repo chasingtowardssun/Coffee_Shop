@@ -5,23 +5,13 @@ cd admin && npm install
 cd customer && npm install
 ```
 ## Run with local DB
-Need to first setup `dbcon.js` correctly using the following
-template
-```javascript
-let mysql = require('mysql');
-
-var pool = mysql.createPool({
-    connectionLimit : 10,
-    host            : 'localhost',
-    user            : 'root',
-    password        : 'password',
-    database        : 'coffee_shop'
-});
-
-module.exports.pool = pool;
+Need to first setup `dbcon.js` correctly using the included `dbcon.local.js` file:
+make necessary changes to the content in `dbcon.local.js` in both `admin` and `customer`
+directory, then
+```bash
+cd admin && ln -sf dbcon.local.js dbcon.js
+cd customer && ln -sf dbcon.local.js dbcon.js
 ```
-This is needed for both `admin` site and
-`customer` site.
 ### Run admin site
 ```bash
 cd admin
