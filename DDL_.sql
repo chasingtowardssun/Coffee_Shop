@@ -99,10 +99,10 @@ INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES
 INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (5, 'FlatWhite', 2.39, 170, 'Smooth ristretto shots of espresso get the perfect amount of steamed whole milk to create a not-too-strong, not-too-creamy, just-right flavor.', 'https://globalassets.starbucks.com/assets/fedee22e49724cd09fbcc7ee2e567377.jpg?impolicy=1by1_wide_1242');
 
 
-INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (1, 1, '2020-10-16 23:40:22', 'completed', 1.5);
+INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (1, 1, '2020-10-16 23:40:22', 'completed', 2.5);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (2, 2, '2020-10-16 22:40:56', 'ready for pick up', 1.2);
-INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (3, 4, '2020-10-16 21:31:20', 'processing', 2.7);
-INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (4, 3, '2020-10-16 21:41:42', 'placed', 3);
+INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (3, 4, '2020-10-16 21:31:20', 'processing', 3.7);
+INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (4, 3, '2020-10-16 21:41:42', 'placed', 5);
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (5, 1, '2020-10-16 23:56:45', 'placed', 1.2);
 
 INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (1, 1, 2, 1);

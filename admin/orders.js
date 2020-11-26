@@ -97,8 +97,10 @@ module.exports = function () {
         let mysql = req.app.get('mysql');
         console.log(req.body);
         console.log(req.params.id);
-        let sql = "UPDATE Orders SET totalPrice=?, orderStatus=? WHERE orderID=?";
-        let inserts = [req.body.totalPrice, req.body.orderStatus, req.params.id];
+        // let sql = "UPDATE Orders SET totalPrice=?, orderStatus=? WHERE orderID=?";
+        let sql = "UPDATE Orders SET orderStatus=? WHERE orderID=?";
+        // let inserts = [req.body.totalPrice, req.body.orderStatus, req.params.id];
+        let inserts = [req.body.orderStatus, req.params.id];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 console.log(error);
