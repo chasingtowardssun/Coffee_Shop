@@ -2,13 +2,34 @@
 <br>
 <br>
 
-<form id="update-item" action="/items" method="post">
-    Item name: <input type="text" name="itemName" value="{{item.itemName}}"><br>
-    Calorie: <input type="text" name="calorie" value="{{item.calorie}}"><br>
-    Item description: <input type="text" name="description" value="{{item.description}}"><br>
-    Picture URL: <input type="text" name="picURL" value="{{item.picURL}}"><br>
-    Unit Price: <input type="text" name="unitPrice" value="{{item.unitPrice}}"><br>
+<form id="update-item" action="/items/{{item.id}}" method="POST">
+    <input type="hidden" id="item_id" name="item_id" value="{{item.id}}">
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            Item name: <input class="form-control" type="text" name="itemName" value="{{item.itemName}}" required>
+        </div>
+        <div class="form-group col-md-5">
+            Calories: <input class="form-control" type="number" min="0" step="1" name="calorie" value="{{item.calorie}}"
+                             required>
+        </div>
+        <div class="form-group col-md-5">
+            Item Unit Price: <input class="form-control" type="number" name="unitPrice" min="0"
+                                    value="{{item.unitPrice}}" step=".01" required>
+        </div>
+        <div class="form-group col-md-5">
+            Stock Status:
+            <select class="form-control" name="stock" id="stock-{{item.itemID}}">
+                {{#select item.inStock}}
+                    <option value="in Stock">in Stock</option>
+                    <option value="out of Stock">out of Stock</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+    Item Description: <input class="form-control" type="text" name="description" value="{{item.description}}" required>
+    Picture URL (begin with http://): <input class="form-control" type="url" name="picURL" value="{{item.picURL}}"
+                                             required>
+    <input class="btn btn-primary" type="submit" value="Submit">
 </form>
-<button onclick="updateItem({{item.id}})">Update</button>
 
 

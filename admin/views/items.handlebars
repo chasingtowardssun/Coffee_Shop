@@ -5,19 +5,36 @@
 <h3>Add new Item:</h3>
 <form id="additem" action="/items" method="post">
     <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-5">
             Item name: <input class="form-control" type="text" name="name" required><br>
         </div>
-        <div class="form-group col-md-4">
-            Calories: <input class="form-control" type="number" name="calorie" placeholder="must enter a integer" required><br>
+
+        <div class="form-group col-md-5">
+            Calories: <input class="form-control" type="number" min="0" name="calorie"
+                             placeholder="must enter a integer" required><br>
         </div>
-        <div class="form-group col-md-4">
+
+        <div class="form-group col-md-5">
             Item Unit Price: <input class="form-control" type="number" placeholder="must enter a number"
-                                    name="unitPrice" min="0" value="0.01" step=".01"required><br>
+                                    name="unitPrice" min="0" value="0.01" step=".01" required><br>
         </div>
+
+        <div class="form-group col-md-5">
+            Stock Status: <select class="form-control" type="text" id="stock-{{itemID}} value="{{inStock}}"
+            name="stock" required><br>
+            {{#select inStock}}
+                <option value="in Stock">in Stock</option>
+                <option value="out of Stock">out of Stock</option>
+            {{/select}}
+            </select>
+        </div>
+
+
     </div>
     Item Description: <input class="form-control" type="text" name="description" required><br>
-    Picture URL (begin with http://): <input class="form-control" type="url" name="picURL" value="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?impolicy=1by1_wide_1242" required><br>
+    Picture URL (begin with http://): <input class="form-control" type="url" name="picURL"
+                                             value="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?impolicy=1by1_wide_1242"
+                                             required><br>
     <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 <br/>
@@ -27,14 +44,14 @@
 <table class="table">
     <thead>
     <tr>
-    <th style="width: 5%">ID</th>
-    <th style="width: 10%">Name</th>
-    <th style="width: 10%">Calories</th>
-    <th style="width: 30%">Description</th>
-    <th style="width: 15%">Picture URL</th>
-    <th style="width: 10%">Unit Price</th>
-    <th style="width: 10%"></th>
-    <th style="width: 10%"></th>
+        <th style="width: 5%">ID</th>
+        <th style="width: 10%">Name</th>
+        <th style="width: 10%">Calories</th>
+        <th style="width: 30%">Description</th>
+        <th style="width: 15%">Picture URL</th>
+        <th style="width: 10%">Unit Price</th>
+        <th style="width: 20%">Stock Status</th>
+        <th style="width: 20%">Update</th>
     </tr>
     </thead>
     <tbody>
@@ -46,10 +63,8 @@
             <td class="align-middle my-auto">{{description}}</td>
             <td class="align-middle my-auto"><a class="text-wrap" href="{{picURL}}">url</a></td>
             <td class="align-middle my-auto">{{unitPrice}}</td>
-            <td class="align-middle my-auto">
-                <button class="btn btn-danger" onclick="deleteItem({{itemID}})">Delete</button>
-            </td>
-            <td class="align-middle my-auto"><a class="btn btn-primary" href="/items/{{itemID}}">Update</a></td>
+            <td class="align-middle my-auto">{{inStock}}</td>
+            <td class="align-middle my-auto"><a class="btn btn-primary" href="/items/{{itemID}}">Update Details</a></td>
         </tr>
     {{/each}}
     </tbody>

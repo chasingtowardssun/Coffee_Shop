@@ -55,7 +55,8 @@ CREATE TABLE Items(
     unitPrice float(8) NOT NULL,
     calorie varchar(255) NOT NULL,
     description varchar(255) NOT NULL,
-    picURL varchar(255) NOT NULL
+    picURL varchar(255) NOT NULL,
+    inStock varchar(255) NOT NULL
 );
 
 -- Table structure for table `Item_order`
@@ -92,11 +93,11 @@ UNLOCK TABLES;
 -- INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (4, 'Caffe Latte', 'description', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242', 2.95);
 -- INSERT INTO Items (itemID, name, description, picURL, unitPrice) VALUES (5, 'Flat White', 'description', 'https://globalassets.starbucks.com/assets/f7febd6b86084135b98a13fa95c72f51.jpg?impolicy=1by1_wide_1242', 3.75);
 
-INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (1, 'Americano', 1.2, 15, 'Espresso shots topped with hot water create a light layer of crema culminating in this wonderfully rich cup with depth and nuance.', 'https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?impolicy=1by1_wide_1242');
-INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (2, 'Cappuccino', 2.5, 120, 'Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.', 'https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242');
-INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (3, 'Espresso', 1.3, 10, 'Our smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do.', 'https://globalassets.starbucks.com/assets/ec519dd5642c41629194192cce582135.jpg?impolicy=1by1_wide_1242');
-INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (4, 'Mocha', 2.95, 360, 'Our rich, full-bodied espresso combined with bittersweet mocha sauce and steamed milk, then topped with sweetened whipped cream. The classic coffee drink that always sweetly satisfies.', 'https://globalassets.starbucks.com/assets/f4ec500b34624242b15c2d29e53f3c48.jpg?impolicy=1by1_wide_1242');
-INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL) VALUES (5, 'FlatWhite', 2.39, 170, 'Smooth ristretto shots of espresso get the perfect amount of steamed whole milk to create a not-too-strong, not-too-creamy, just-right flavor.', 'https://globalassets.starbucks.com/assets/fedee22e49724cd09fbcc7ee2e567377.jpg?impolicy=1by1_wide_1242');
+INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL, inStock) VALUES (1, 'Americano', 1.2, 15, 'Espresso shots topped with hot water create a light layer of crema culminating in this wonderfully rich cup with depth and nuance.', 'https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?impolicy=1by1_wide_1242', 'in Stock');
+INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL, inStock) VALUES (2, 'Cappuccino', 2.5, 120, 'Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.', 'https://globalassets.starbucks.com/assets/5c515339667943ce84dc56effdf5fc1b.jpg?impolicy=1by1_wide_1242', 'in Stock');
+INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL, inStock) VALUES (3, 'Espresso', 1.3, 10, 'Our smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do.', 'https://globalassets.starbucks.com/assets/ec519dd5642c41629194192cce582135.jpg?impolicy=1by1_wide_1242', 'in Stock');
+INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL, inStock) VALUES (4, 'Mocha', 2.95, 360, 'Our rich, full-bodied espresso combined with bittersweet mocha sauce and steamed milk, then topped with sweetened whipped cream. The classic coffee drink that always sweetly satisfies.', 'https://globalassets.starbucks.com/assets/f4ec500b34624242b15c2d29e53f3c48.jpg?impolicy=1by1_wide_1242', 'in Stock');
+INSERT INTO Items (itemID, name, unitPrice, calorie, description, picURL, inStock) VALUES (5, 'FlatWhite', 2.39, 170, 'Smooth ristretto shots of espresso get the perfect amount of steamed whole milk to create a not-too-strong, not-too-creamy, just-right flavor.', 'https://globalassets.starbucks.com/assets/fedee22e49724cd09fbcc7ee2e567377.jpg?impolicy=1by1_wide_1242', 'in Stock');
 
 
 INSERT INTO Orders (orderID, userID, orderTime, orderStatus, totalPrice) VALUES (1, 1, '2020-10-16 23:40:22', 'completed', 2.5);
@@ -118,6 +119,6 @@ INSERT INTO Item_order (itemOrderID, orderID, itemID, itemQuanity) VALUES (6, 5,
 # GROUP BY orderID
 
 -- query for order detail
-SELECT Items.name, Item_order.itemQuanity
-FROM Item_order INNER JOIN Items on Item_order.itemID = Items.itemID INNER JOIN Orders O on Item_order.orderID = O.orderID
-where Item_order.orderID = 8200001
+# SELECT Items.name, Item_order.itemQuanity
+# FROM Item_order INNER JOIN Items on Item_order.itemID = Items.itemID INNER JOIN Orders O on Item_order.orderID = O.orderID
+# where Item_order.orderID = 8200001
