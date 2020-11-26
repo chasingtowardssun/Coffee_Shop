@@ -6,12 +6,15 @@ cd customer && npm install
 ```
 ## Run with local DB
 Need to first setup `dbcon.js` correctly using the included `dbcon.local.js` file:
-make necessary changes to the content in `dbcon.local.js` in both `admin` and `customer`
-directory, then
+make a copy of the included `dbcon.local.js` in both `admin` and `customer`
+directory first:
 ```bash
-cd admin && ln -sf dbcon.local.js dbcon.js
-cd customer && ln -sf dbcon.local.js dbcon.js
+cd admin && cp dbcon.local.js dbcon.js
+cd customer && cp dbcon.local.js dbcon.js
 ```
+Update the content of `dbcon.js` as needed (username, password, database name, etc) to point the DB connection to local MySQL 
+server. 
+> :warning: DO NOT CHANGE `dbcon.local.js` DIRECTLY.
 ### Run admin site
 ```bash
 cd admin
