@@ -3,7 +3,7 @@ module.exports = function () {
     let router = express.Router();
 
     function getItems(res, mysql, context, complete) {
-        mysql.pool.query("SELECT name, unitPrice, calorie, description, picURL FROM Items", function (error, results, fields) {
+        mysql.pool.query("SELECT name, unitPrice, calorie, description, picURL FROM Items WHERE inStock = 'in Stock'", function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
                 res.end();

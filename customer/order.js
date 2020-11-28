@@ -4,7 +4,7 @@ module.exports = function () {
 
 
     function getItems(res, mysql, context, complete) {
-        mysql.pool.query("SELECT itemID, name, unitPrice FROM Items", function (error, results, fields) {
+        mysql.pool.query("SELECT itemID, name, unitPrice FROM Items WHERE inStock = 'in Stock'", function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
