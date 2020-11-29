@@ -49,8 +49,8 @@ module.exports = function () {
     router.post('/', function (req, res) {
         console.log('POST');
         let mysql = req.app.get('mysql');
-        let sql = "INSERT INTO Items (name, calorie, description, picURL, unitPrice) VALUES (?, ?, ?, ?,?)";
-        let inserts = [req.body.name, req.body.calorie, req.body.description, req.body.picURL, req.body.unitPrice];
+        let sql = "INSERT INTO Items (name, calorie, description, picURL, inStock, unitPrice) VALUES (?, ?, ?, ?, ?,?)";
+        let inserts = [req.body.name, req.body.calorie, req.body.description, req.body.picURL, req.body.inStock, req.body.unitPrice];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 console.log(JSON.stringify(error));

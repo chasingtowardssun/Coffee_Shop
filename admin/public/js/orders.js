@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $('select').change(function(event){
+$(document).ready(function () {
+    $('select').change(function (event) {
         let order_object_name = event.target.id;
         let order_id = order_object_name.split('-')[1];
         let order_status = $('#' + order_object_name).val();
@@ -27,7 +27,7 @@ $(document).ready(function(){
     //     updateOrder(order_id, {'orderStatus': order_status});
     // });
 
-    $('.detail_btn').click(function(event){
+    $('.detail_btn').click(function (event) {
         let order_object_name = event.target.id;
         let order_id = order_object_name.split('-')[1];
         console.log(`Getting details for order ${order_id}`);
@@ -56,10 +56,11 @@ function getOrderDetails(id) {
         data: {},
         success: function (result) {
             $(`#order_detail_content-${id}`).html(result);
-            if($(`#order_detail-${id}`).is(":visible")) {
+            if ($(`#order_detail-${id}`).is(":visible")) {
                 $(`#order_detail-${id}`).hide();
+            } else {
+                $(`#order_detail-${id}`).show();
             }
-            else {$(`#order_detail-${id}`).show();}
         }
     })
 }

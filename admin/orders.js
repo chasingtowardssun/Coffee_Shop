@@ -70,12 +70,13 @@ module.exports = function () {
         context.jsscripts = ["orders.js"];
         let mysql = req.app.get('mysql');
 
-        if(req.params.order_id) {
+        if (req.params.order_id) {
             getOrderDetails(res, mysql, context, req.params.order_id, complete_json);
         } else {
             getOrders(res, mysql, context, complete);
 
         }
+
         function complete() {
             callbackCount++;
             if (callbackCount >= 1) {
